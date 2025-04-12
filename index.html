@@ -15,6 +15,8 @@
       width: 100%;
       height: 100%;
       background-color: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -128,6 +130,29 @@
       }
     }
 
+    /* 分岐リンク */
+    .branch-links {
+      position: absolute;
+      bottom: 20%;
+      display: flex;
+      gap: 3rem;
+      z-index: 3;
+    }
+
+    .branch-link {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-family: 'Segoe UI', sans-serif;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .branch-link:hover {
+      color: white;
+      text-shadow: 0 0 12px rgba(255,255,255,0.5);
+    }
+
+    /* future link (中央) */
     .future-link {
       position: absolute;
       top: 50%;
@@ -165,6 +190,18 @@
         transform: translate(-50%, -50%) scale(1);
       }
     }
+
+    /* 連絡情報 */
+    .footer-info {
+      position: absolute;
+      bottom: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Segoe UI', sans-serif;
+      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
@@ -174,6 +211,16 @@
   <div class="invisible-text">Invisible Partners</div>
   <div class="persistent-text">Invisible Partners</div>
   <a href="next.html" class="future-link fade-link">未来へ</a>
+
+  <div class="branch-links">
+    <a href="for-companies.html" class="branch-link fade-link">企業向け導入案内</a>
+    <a href="for-investors.html" class="branch-link fade-link">投資家向け案内</a>
+    <a href="for-banks.html" class="branch-link fade-link">銀行向け案内</a>
+  </div>
+
+  <div class="footer-info">
+    X: @ROKI_ReUnion　｜　メール: roki.reunion@gmail.com
+  </div>
 
   <script>
     // 星生成
