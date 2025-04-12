@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>未来の扉｜Invisible Partners</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .menu {
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: center;
+      animation: fadeIn 2s ease-in-out 1s forwards;
+      opacity: 0;
+    }
+
+    .menu a {
+      font-size: 2rem;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .menu a:hover {
+      color: #fff;
+      transform: scale(1.1);
+      text-shadow: 0 0 12px rgba(255,255,255,0.5);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .return-home {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Segoe UI', sans-serif;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeFloatCloud 3s ease-in-out 1s forwards, cloudFloat 6s ease-in-out infinite;
+      z-index: 4;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .return-home:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    }
+
+    @keyframes fadeFloatCloud {
+      0% {
+        opacity: 0;
+        transform: translate(0, 0);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes cloudFloat {
+      0%   { transform: translate(0px, 0px) rotate(0deg); }
+      25%  { transform: translate(-4px, 2px) rotate(-1deg); }
+      50%  { transform: translate(0px, 0px) rotate(0deg); }
+      75%  { transform: translate(4px, -2px) rotate(1deg); }
+      100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="menu">
+    <a href="overview.html" class="fade-link">事業概要｜Overview</a>
+    <a href="vision.html" class="fade-link">展望｜Vision</a>
+    <a href="philosophy.html" class="fade-link">理念｜Philosophy</a>
+    <a href="contact.html" class="fade-link">Contacts</a>
+  </div>
+
+  <a href="index.html" class="return-home fade-link">はじまりへ</a>
+
+  <script>
+    const starContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      star.style.animationDuration = `${2 + Math.random() * 2}s`;
+      starContainer.appendChild(star);
+    }
+
+    document.querySelectorAll("a.fade-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
