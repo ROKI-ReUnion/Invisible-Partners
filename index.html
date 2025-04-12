@@ -2,260 +2,75 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Λ｜Invisible Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invisible Partners</title>
   <style>
-    * {
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      padding: 2rem;
     }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      opacity: 1;
-      transition: opacity 0.6s ease-in-out;
-    }
-
-    body.fade-out {
-      opacity: 0;
-    }
-
-    .stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0;
-      animation: twinkle 3s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 1; }
-    }
-
-    .symbol {
-      z-index: 1;
-      animation: symbolFadeIn 2s ease-in-out forwards;
-      max-width: 50%;
-      height: auto;
-      filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
-    }
-
-    @keyframes symbolFadeIn {
-      0% { opacity: 0; transform: scale(0.95); }
-      75% { opacity: 0.5; transform: scale(0.98); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    .invisible-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2.5rem;
-      color: #ffffff;
-      opacity: 0;
-      animation: textFadeScatter 2s ease-in-out forwards;
-      animation-delay: 1.5s;
-      font-family: 'Segoe UI', sans-serif;
-      white-space: nowrap;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    @keyframes textFadeScatter {
-      0% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translate(-50%, -50%) scale(0.9);
-      }
-      70% {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translate(-50%, -50%) scale(1);
-      }
-      100% {
-        opacity: 0;
-        filter: blur(30px);
-        transform: translate(-50%, -50%) scale(1.2);
-      }
-    }
-
-    .persistent-text {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 1.5rem;
-      color: rgba(255, 255, 255, 0.3);
-      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-      opacity: 0;
-      animation: fadeInSlow 1.5s ease-in-out forwards;
-      animation-delay: 4.2s;
-      font-family: 'Segoe UI', sans-serif;
-      z-index: 2;
-    }
-
-    @keyframes fadeInSlow {
-      0% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translateY(-10px);
-      }
-      100% {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateY(0);
-      }
-    }
-
-    .future-link {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
-      color: rgba(255, 255, 255, 0.3);
-      text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.3),
-        0 0 12px rgba(255, 255, 255, 0.2);
-      text-decoration: none;
-      font-family: 'Segoe UI', sans-serif;
-      opacity: 0;
-      animation: futureFadeIn 1.2s ease-out forwards;
-      animation-delay: 5s;
-      z-index: 3;
-      transition: color 0.3s, text-shadow 0.3s;
-      pointer-events: auto;
-    }
-
-    .future-link:hover {
-      color: rgba(255, 255, 255, 0.6);
-      text-shadow: 0 0 10px rgba(255,255,255,0.3);
-    }
-
-    @keyframes futureFadeIn {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.95);
-        filter: blur(6px);
-      }
-      100% {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-
-    .branch-links {
-      position: absolute;
-      bottom: 20%;
-      display: flex;
-      gap: 3rem;
-      z-index: 3;
-    }
-
-    .branch-link {
-      font-size: 1.3rem;
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      font-family: 'Segoe UI', sans-serif;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-
-    .branch-link:hover {
-      color: white;
-      text-shadow: 0 0 12px rgba(255,255,255,0.5);
-    }
-
-    .footer-info {
-      position: absolute;
-      bottom: 40px;
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
       text-align: center;
-      font-size: 0.9rem;
-      font-family: 'Segoe UI', sans-serif;
-      width: 100%;
-      z-index: 2;
     }
-
-    .footer-info a,
-    .footer-info a:visited,
-    .footer-info a:active {
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-      transition: color 0.3s ease, text-shadow 0.3s ease;
+    section {
+      margin: 2rem 0;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
     }
-
-    .footer-info a:hover {
-      text-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255,255,255,0.4);
+    h1, h2 {
+      color: #333;
+    }
+    a {
+      color: #007acc;
     }
   </style>
 </head>
 <body>
 
-  <div class="stars" id="stars"></div>
-  <img src="laz-symbol.png" alt="Λ Symbol" class="symbol">
-  <div class="invisible-text">Invisible Partners</div>
-  <div class="persistent-text">Invisible Partners</div>
-  <a href="next.html" class="future-link fade-link">未来へ</a>
+  <header>
+    <h1>Invisible Partners｜インビジブルパートナーズ</h1>
+    <p>見えない価値を、見える力へ。</p>
+  </header>
 
-  <div class="branch-links">
-    <a href="for-companies.html" class="branch-link fade-link">企業向け導入案内</a>
-    <a href="for-investors.html" class="branch-link fade-link">投資家向け案内</a>
-    <a href="for-banks.html" class="branch-link fade-link">銀行向け案内</a>
-  </div>
+  <section>
+    <h2>事業内容</h2>
+    <p>
+      人の在り方を可視化し、心の状態を把握することで、<br>
+      人と企業、社会の健全化を目指す事業です。<br>
+      Googleフォームを活用した心理分析アンケートを実施し、<br>
+      企業の健全性を可視化。支援と改善提案を行います。
+    </p>
+  </section>
 
-  <div class="footer-info">
-    X: <a href="https://x.com/ROKI_ReUnion" target="_blank" class="fade-link">@ROKI_ReUnion</a>　
-    ｜　
-    メール: <a href="mailto:roki.reunion@gmail.com" class="fade-link">roki.reunion@gmail.com</a>
-  </div>
+  <section>
+    <h2>現在のフェーズ</h2>
+    <p>
+      小規模の運営段階。今後、NPO法人による学生起用、<br>
+      ギルド構想、新しい信用機構インフラへと拡張予定。
+    </p>
+  </section>
 
-  <script>
-    const starContainer = document.getElementById("stars");
-    const starCount = 100;
+  <section>
+    <h2>無料診断はこちら</h2>
+    <p>
+      <a href="https://docs.google.com/forms/your_form_id" target="_blank">企業診断アンケートフォーム</a>
+    </p>
+  </section>
 
-    for (let i = 0; i < starCount; i++) {
-      const star = document.createElement("div");
-      star.className = "star";
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.animationDelay = `${Math.random() * 3}s`;
-      star.style.animationDuration = `${2 + Math.random() * 2}s`;
-      starContainer.appendChild(star);
-    }
-
-    document.querySelectorAll("a.fade-link").forEach(link => {
-      link.addEventListener("click", function(e) {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        document.body.classList.add("fade-out");
-        setTimeout(() => {
-          window.location.href = href;
-        }, 600);
-      });
-    });
-  </script>
+  <section>
+    <h2>お問い合わせ</h2>
+    <p>
+      お問い合わせはメールまたはSNSからお願いします。
+    </p>
+  </section>
 
 </body>
 </html>
+	
