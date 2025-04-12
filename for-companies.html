@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>企業向け導入案内｜Invisible Partners</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 80px auto 120px;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .content h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    th {
+      background: rgba(255,255,255,0.05);
+      font-weight: bold;
+    }
+
+    .highlight {
+      background-color: rgba(255,255,255,0.1);
+      font-weight: bold;
+    }
+
+    .section-label {
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      text-align: left;
+      border-left: 4px solid white;
+      padding-left: 10px;
+    }
+
+    .return-top {
+      position: fixed;
+      top: 40%;
+      left: 20px;
+      transform: rotate(-5deg);
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Segoe UI', sans-serif;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeFloatReturn 1.5s ease-in-out forwards, returnFloat 6s ease-in-out infinite;
+      animation-delay: 1.5s;
+      z-index: 2;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .return-top:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    }
+
+    @keyframes fadeFloatReturn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) rotate(-5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) rotate(-5deg);
+      }
+    }
+
+    @keyframes returnFloat {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-6px) rotate(-4deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="content">
+    <h1>企業向け導入案内｜For Companies</h1>
+    <p>
+      Invisible Partnersは、企業組織における「見えない課題」を可視化し、<br>
+      従業員の心理的安全性と構造の健全化を支援する仕組みです。<br><br>
+
+      独自設計のアンケートとAI解析により、現場の実態を明らかにし、<br>
+      組織に潜むストレス構造や、構造上のボトルネックを早期に把握・改善へと導きます。<br><br>
+
+      以下は、現在提供中のプランと価格帯です。
+    </p>
+
+    <div class="section-label">α版｜標準プラン（導入費用あり）</div>
+    <table>
+      <tr>
+        <th>従業員数</th><th>加算率</th><th>加算額</th><th>1ヶ月の価格</th><th>導入費</th><th>備考</th>
+      </tr>
+      <tr><td>1〜10人</td><td>0%</td><td>¥0</td><td>¥10,000</td><td>¥10,000</td><td>スタートライン、最小負担</td></tr>
+      <tr><td>11〜20人</td><td>5%</td><td>¥500</td><td>¥10,500</td><td>¥13,000</td><td>小規模体力あり</td></tr>
+      <tr><td>21〜30人</td><td>10%</td><td>¥1,000</td><td>¥11,000</td><td>¥16,000</td><td>中小企業標準帯</td></tr>
+      <tr><td>31〜40人</td><td>15%</td><td>¥1,500</td><td>¥11,500</td><td>¥19,000</td><td>部門構造出現フェーズ</td></tr>
+      <tr><td>41〜50人</td><td>20%</td><td>¥2,000</td><td>¥12,000</td><td>¥22,000</td><td>構造改善効果が大きい帯域</td></tr>
+      <tr><td>51〜60人</td><td>25%</td><td>¥2,500</td><td>¥12,500</td><td>¥25,000</td><td>人数に比例した支援設計が可能</td></tr>
+      <tr><td>61〜70人</td><td>30%</td><td>¥3,000</td><td>¥13,000</td><td>¥28,000</td><td>対象範囲が大きくなる帯域</td></tr>
+      <tr><td>71〜80人</td><td>35%</td><td>¥3,500</td><td>¥13,500</td><td>¥31,000</td><td>導入管理・報告が複雑化</td></tr>
+      <tr><td>81〜90人</td><td>40%</td><td>¥4,000</td><td>¥14,000</td><td>¥34,000</td><td>精度と責任の両立ゾーン</td></tr>
+      <tr><td>91〜100人</td><td>50%</td><td>¥5,000</td><td>¥15,000</td><td>¥40,000</td><td>中堅企業規模</td></tr>
+      <tr class="highlight"><td>101人以上</td><td>応相談</td><td>応相談</td><td>応相談</td><td>応相談</td><td>大企業／個別設計</td></tr>
+    </table>
+
+    <div class="section-label">β版｜トライアルプラン（期間限定割引）</div>
+    <table>
+      <tr>
+        <th>従業員数</th><th>割引率</th><th>割引額</th><th>1ヶ月の価格</th>
+      </tr>
+      <tr><td>1〜10人</td><td>20%</td><td>¥2,000</td><td>¥8,000</td></tr>
+      <tr><td>11〜20人</td><td>20%</td><td>¥2,100</td><td>¥8,400</td></tr>
+      <tr><td>21〜30人</td><td>20%</td><td>¥2,200</td><td>¥8,800</td></tr>
+      <tr><td>31〜40人</td><td>20%</td><td>¥2,300</td><td>¥9,200</td></tr>
+      <tr><td>41〜50人</td><td>20%</td><td>¥2,400</td><td>¥9,600</td></tr>
+      <tr><td>51〜60人</td><td>20%</td><td>¥2,500</td><td>¥10,000</td></tr>
+      <tr><td>61〜70人</td><td>20%</td><td>¥2,600</td><td>¥10,400</td></tr>
+      <tr><td>71〜80人</td><td>20%</td><td>¥2,700</td><td>¥10,800</td></tr>
+      <tr><td>81〜90人</td><td>20%</td><td>¥2,800</td><td>¥11,200</td></tr>
+      <tr><td>91〜100人</td><td>20%</td><td>¥3,000</td><td>¥12,000</td></tr>
+      <tr class="highlight"><td>101人以上</td><td>応相談</td><td>応相談</td><td>応相談</td></tr>
+    </table>
+
+    <p style="text-align: center;">
+      ご不明な点や詳細のご相談は、<br>
+      <a href="contact.html" class="fade-link" style="color: white; font-weight: bold; text-shadow: 0 0 10px rgba(255,255,255,0.5);">Contacts</a> よりお問い合わせください。
+    </p>
+  </div>
+
+  <a href="index.html" class="return-top fade-link">還る</a>
+
+  <script>
+    const starContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      star.style.animationDuration = `${2 + Math.random() * 2}s`;
+      starContainer.appendChild(star);
+    }
+
+    document.querySelectorAll("a.fade-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>銀行向け案内｜Invisible Partners</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 80px auto 120px;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .content h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    th {
+      background: rgba(255,255,255,0.05);
+      font-weight: bold;
+    }
+
+    .highlight {
+      background-color: rgba(255,255,255,0.1);
+      font-weight: bold;
+    }
+
+    .section-label {
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      text-align: left;
+      border-left: 4px solid white;
+      padding-left: 10px;
+    }
+
+    .return-top {
+      position: fixed;
+      top: 40%;
+      left: 20px;
+      transform: rotate(-5deg);
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Segoe UI', sans-serif;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeFloatReturn 1.5s ease-in-out forwards, returnFloat 6s ease-in-out infinite;
+      animation-delay: 1.5s;
+      z-index: 2;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .return-top:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    }
+
+    @keyframes fadeFloatReturn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) rotate(-5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) rotate(-5deg);
+      }
+    }
+
+    @keyframes returnFloat {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-6px) rotate(-4deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="content">
+    <h1>銀行向け案内｜For Banks</h1>
+    <p>
+      Invisible Partnersでは、銀行・信用機関との連携を前提としたLAX（Aura Exchange）ライセンスモデルを提供しています。<br><br>
+      本モデルは、企業の心理健全性スコア（RTランク）を可視化・活用できる評価機構であり、<br>
+      銀行による評価・支援・リスク管理において、新たな軸として機能します。<br><br>
+      以下は、用途・社数・カスタム可否に応じた各プランです。
+    </p>
+
+    <div class="section-label">LAX ライセンスプラン一覧</div>
+    <table>
+      <tr>
+        <th>プラン名</th><th>月額</th><th>年額</th><th>＋カスタム費用</th><th>＋1社金額</th><th>提供内容</th>
+      </tr>
+      <tr><td>ライト</td><td>¥100,000</td><td>¥1,000,000</td><td>ナシ</td><td>ナシ</td><td>10社の年単位ランクのみ</td></tr>
+      <tr><td>L・カスタム（1社）</td><td>¥130,000</td><td>¥1,000,000</td><td>¥30,000</td><td>¥30,000</td><td>ライト＋1社のみRTランク閲覧可能</td></tr>
+      <tr><td>スタンダード</td><td>¥200,000</td><td>¥2,000,000</td><td>ナシ</td><td>ナシ</td><td>100社の半年単位ランクのみ</td></tr>
+      <tr><td>S・カスタム（1社）</td><td>¥250,000</td><td>¥2,500,000</td><td>¥50,000</td><td>¥10,000</td><td>スタンダード＋10社のみRTランク閲覧可能</td></tr>
+      <tr class="highlight"><td>プロ</td><td>¥500,000</td><td>¥5,000,000</td><td>ナシ</td><td>ナシ</td><td>全企業のRTランクデータ無制限閲覧可能</td></tr>
+    </table>
+
+    <p style="text-align: center;">
+      上記プランに関する詳細、または連携・協議に関するご相談は、<br>
+      <a href="contact.html" class="fade-link" style="color: white; font-weight: bold; text-shadow: 0 0 10px rgba(255,255,255,0.5);">Contacts</a> よりご連絡ください。
+    </p>
+  </div>
+
+  <a href="index.html" class="return-top fade-link">還る</a>
+
+  <script>
+    const starContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      star.style.animationDuration = `${2 + Math.random() * 2}s`;
+      starContainer.appendChild(star);
+    }
+
+    document.querySelectorAll("a.fade-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>投資家向け案内｜Invisible Partners</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 80px auto 120px;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .content h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    th {
+      background: rgba(255,255,255,0.05);
+      font-weight: bold;
+    }
+
+    .highlight {
+      background-color: rgba(255,255,255,0.1);
+      font-weight: bold;
+    }
+
+    .section-label {
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      text-align: left;
+      border-left: 4px solid white;
+      padding-left: 10px;
+    }
+
+    .return-top {
+      position: fixed;
+      top: 40%;
+      left: 20px;
+      transform: rotate(-5deg);
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Segoe UI', sans-serif;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeFloatReturn 1.5s ease-in-out forwards, returnFloat 6s ease-in-out infinite;
+      animation-delay: 1.5s;
+      z-index: 2;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .return-top:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    }
+
+    @keyframes fadeFloatReturn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) rotate(-5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) rotate(-5deg);
+      }
+    }
+
+    @keyframes returnFloat {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-6px) rotate(-4deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="content">
+    <h1>投資家向け案内｜For Investors</h1>
+    <p>
+      Invisible Partnersでは、AE（Aura Exchange）システムを基盤としたライセンス事業を展開しています。<br><br>
+
+      AEは、組織の心理的健全性や存在構造を可視化する新しい評価モデルであり、<br>
+      私たちはこの仕組みを「LAX（ライセンス・オブ・アウラ・エクスチェンジ）」と呼びます。<br><br>
+
+      現在、LAXのスモールライセンスとして、LAXSおよびLAXS Proの販売を行っており、<br>
+      対象規模に応じて明確な料金体系を設けています。
+    </p>
+
+    <div class="section-label">LAXS ライセンス価格表</div>
+    <table>
+      <tr>
+        <th>規模</th><th>LAXS</th><th>LAXS Pro</th>
+      </tr>
+      <tr><td>〜10人未満</td><td>¥20,000</td><td>¥80,000</td></tr>
+      <tr><td>11〜30人未満</td><td>¥30,000</td><td>¥100,000</td></tr>
+      <tr><td>31〜60人未満</td><td>¥40,000</td><td>¥120,000</td></tr>
+      <tr><td>61〜100人未満</td><td>¥50,000</td><td>¥150,000</td></tr>
+      <tr class="highlight"><td>100人以上</td><td>応相談</td><td>応相談</td></tr>
+    </table>
+
+    <p style="text-align: center;">
+      ご興味をお持ちいただけましたら、<br>
+      <a href="contact.html" class="fade-link" style="color: white; font-weight: bold; text-shadow: 0 0 10px rgba(255,255,255,0.5);">Contacts</a> よりお気軽にお問い合わせください。
+    </p>
+  </div>
+
+  <a href="index.html" class="return-top fade-link">還る</a>
+
+  <script>
+    const starContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      star.style.animationDuration = `${2 + Math.random() * 2}s`;
+      starContainer.appendChild(star);
+    }
+
+    document.querySelectorAll("a.fade-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      });
+    });
+  </script>
+
+</body>
+</html>
