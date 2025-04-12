@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Λ｜Invisible Partners</title>
+  <style>
+    /* ----- 共通スタイル ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    /* ----- 星背景 ----- */
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    /* ----- ロゴ・文字たち ----- */
+    .symbol {
+      z-index: 1;
+      animation: symbolFadeIn 2s ease-in-out forwards;
+      max-width: 50%;
+      height: auto;
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+    }
+
+    @keyframes symbolFadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      75% { opacity: 0.5; transform: scale(0.98); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .invisible-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      color: #ffffff;
+      opacity: 0;
+      animation: textFadeScatter 2s ease-in-out forwards;
+      animation-delay: 1.5s;
+      font-family: 'Segoe UI', sans-serif;
+      white-space: nowrap;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @keyframes textFadeScatter {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+      70% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        filter: blur(30px);
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+
+    .persistent-text {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.3);
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+      opacity: 0;
+      animation: fadeInSlow 1.5s ease-in-out forwards;
+      animation-delay: 4.2s;
+      font-family: 'Segoe UI', sans-serif;
+      z-index: 2;
+    }
+
+    @keyframes fadeInSlow {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+      }
+    }
+
+    .future-link {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.3);
+      text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.3),
+        0 0 12px rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      font-family: 'Segoe UI', sans-serif;
+      opacity: 0;
+      animation: futureFadeIn 1.2s ease-out forwards;
+      animation-delay: 5s;
+      z-index: 3;
+      transition: color 0.3s, text-shadow 0.3s;
+      pointer-events: auto;
+    }
+
+    .future-link:hover {
+      color: rgba(255, 255, 255, 0.6);
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    @keyframes futureFadeIn {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.95);
+        filter: blur(6px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <img src="laz-symbol.png" alt="Λ Symbol" class="symbol">
+  <div class="invisible-text">Invisible Partners</div>
+  <div class="persistent-text">Invisible Partners</div>
+  <a href="next.html" class="future-link fade-link">未来へ</a>
+
+  <script>
+    // 星生成
+    const starContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      star.style.animationDuration = `${2 + Math.random() * 2}s`;
+      starContainer.appendChild(star);
+    }
+
+    // フェード遷移処理
+    document.querySelectorAll("a.fade-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      });
+    });
+  </script>
+
+</body>
+</html>
