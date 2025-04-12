@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Λ｜Invisible Partners</title>
   <style>
-    /* ----- 共通スタイル ----- */
     * {
       margin: 0;
       padding: 0;
@@ -30,7 +29,6 @@
       opacity: 0;
     }
 
-    /* ----- 星背景 ----- */
     .stars {
       position: absolute;
       width: 100%;
@@ -54,7 +52,6 @@
       50% { opacity: 1; }
     }
 
-    /* ----- ロゴ・文字たち ----- */
     .symbol {
       z-index: 1;
       animation: symbolFadeIn 2s ease-in-out forwards;
@@ -130,29 +127,6 @@
       }
     }
 
-    /* 分岐リンク */
-    .branch-links {
-      position: absolute;
-      bottom: 20%;
-      display: flex;
-      gap: 3rem;
-      z-index: 3;
-    }
-
-    .branch-link {
-      font-size: 1.3rem;
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      font-family: 'Segoe UI', sans-serif;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-
-    .branch-link:hover {
-      color: white;
-      text-shadow: 0 0 12px rgba(255,255,255,0.5);
-    }
-
-    /* future link (中央) */
     .future-link {
       position: absolute;
       top: 50%;
@@ -191,16 +165,49 @@
       }
     }
 
-    /* 連絡情報 */
+    .branch-links {
+      position: absolute;
+      bottom: 20%;
+      display: flex;
+      gap: 3rem;
+      z-index: 3;
+    }
+
+    .branch-link {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-family: 'Segoe UI', sans-serif;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .branch-link:hover {
+      color: white;
+      text-shadow: 0 0 12px rgba(255,255,255,0.5);
+    }
+
     .footer-info {
       position: absolute;
       bottom: 40px;
       text-align: center;
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.4);
       font-family: 'Segoe UI', sans-serif;
-      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+      width: 100%;
       z-index: 2;
+    }
+
+    .footer-info a,
+    .footer-info a:visited,
+    .footer-info a:active {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .footer-info a:hover {
+      text-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255,255,255,0.4);
     }
   </style>
 </head>
@@ -219,13 +226,12 @@
   </div>
 
   <div class="footer-info">
-  X: <a href="https://x.com/ROKI_ReUnion" target="_blank" class="fade-link"> @ROKI_ReUnion</a>　
-  ｜　
-  メール: <a href="mailto:roki.reunion@gmail.com" class="fade-link">roki.reunion@gmail.com</a>
-</div>
+    X: <a href="https://x.com/ROKI_ReUnion" target="_blank" class="fade-link">@ROKI_ReUnion</a>　
+    ｜　
+    メール: <a href="mailto:roki.reunion@gmail.com" class="fade-link">roki.reunion@gmail.com</a>
+  </div>
 
   <script>
-    // 星生成
     const starContainer = document.getElementById("stars");
     const starCount = 100;
 
@@ -239,7 +245,6 @@
       starContainer.appendChild(star);
     }
 
-    // フェード遷移処理
     document.querySelectorAll("a.fade-link").forEach(link => {
       link.addEventListener("click", function(e) {
         e.preventDefault();
