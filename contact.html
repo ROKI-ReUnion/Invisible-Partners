@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacts｜Invisible Partners</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 100px auto 120px;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .content h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .contact-links {
+      text-align: center;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      transition: text-shadow 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      text-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255,255,255,0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .return-top {
+      position: fixed;
+      top: 40%;
+      left: 20px;
+      transform: rotate(-5deg);
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Segoe UI', sans-serif;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeFloatReturn 1.5s ease-in-out forwards, returnFloat 6s ease-in-out infinite;
+      animation-delay: 1.5s;
+      z-index: 2;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .return-top:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    }
+
+    @keyframes fadeFloatReturn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) rotate(-5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) rotate(-5deg);
+      }
+    }
+
+    @keyframes returnFloat {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-6px) rotate(-4deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="content">
+    <h1>Contacts｜ご連絡はこちらへ</h1>
+    <p>
+      ご縁や共鳴を感じてくださった方、<br>
+      あるいはただ、言葉を交わしてみたいと思った方、<br>
+      お気軽にコンタクトいただければ嬉しいです。
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:roki.reunion@gmail.com" class="fade-link">📧 roki.reunion@gmail.com</a>
+      <a href="https://x.com/ROKI_ReUnion" class="fade-link" target="_blank">🕊 X（@ROKI_ReUnion）</a>
+    </div>
+  </div>
+
+  <a href="next.html" class="return-top fade-link">還る</a>
+
+  <script>
+    const starContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      star.style.animationDuration = `${2 + Math.random() * 2}s`;
+      starContainer.appendChild(star);
+    }
+
+    document.querySelectorAll("a.fade-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      });
+    });
+  </script>
+
+</body>
+</html>
