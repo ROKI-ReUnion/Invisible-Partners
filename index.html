@@ -165,13 +165,15 @@
       }
     }
 
-    .branch-links {
-      position: absolute;
-      bottom: 20%;
-      display: flex;
-      gap: 3rem;
-      z-index: 3;
-    }
+.branch-links {
+  position: absolute;
+  top: 65px; /* ← 上の方に移動！ */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2.5rem;
+  z-index: 3;
+}
 
     .branch-link {
       font-size: 1.3rem;
