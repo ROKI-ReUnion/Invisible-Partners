@@ -54,17 +54,18 @@
     }
 
     .return-top {
-      position: fixed;
-      bottom: 40px;
-      left: 20px;
-      font-size: 1.2rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
-      z-index: 1000;
-      animation: floatReturn 4s ease-in-out infinite;
-    }
+  display: block;
+  margin: 3rem auto 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  z-index: 1000;
+  animation: floatReturn 4s ease-in-out infinite;
+}
+
 
     @keyframes floatReturn {
       0%, 100% { transform: translateY(0); }
