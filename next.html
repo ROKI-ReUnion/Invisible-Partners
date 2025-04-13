@@ -2,13 +2,10 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>未来の扉｜Invisible Partners</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
       width: 100%;
@@ -16,21 +13,19 @@
       background: #000;
       color: white;
       font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      flex-direction: column;
       opacity: 1;
       transition: opacity 0.6s ease-in-out;
     }
 
-    body.fade-out {
-      opacity: 0;
-    }
+    body.fade-out { opacity: 0; }
 
     .stars {
-      position: absolute;
+      position: fixed;
       width: 100%;
       height: 100%;
       z-index: 0;
@@ -64,7 +59,7 @@
 
     .menu a {
       font-size: 2rem;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9);
       text-decoration: none;
       transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s;
       animation: float 6s ease-in-out infinite;
@@ -87,41 +82,36 @@
     }
 
     .return-home {
-      position: absolute;
-      top: 30px;
-      left: 30px;
+      margin-top: 80px;
       font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.4);
-      font-family: 'Segoe UI', sans-serif;
+      color: white;
       text-decoration: none;
-      opacity: 0;
-      animation: fadeFloatCloud 3s ease-in-out 1s forwards, cloudFloat 6s ease-in-out infinite;
-      z-index: 4;
-      transition: color 0.3s, text-shadow 0.3s;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255, 255, 180, 0.5);
+      animation: floatReturn 4s ease-in-out infinite;
+      transition: text-shadow 0.3s ease;
     }
 
     .return-home:hover {
-      color: rgba(255, 255, 255, 0.8);
-      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+      text-shadow: 0 0 18px rgba(255, 255, 200, 0.9), 0 0 28px rgba(255, 255, 180, 0.5);
     }
 
-    @keyframes fadeFloatCloud {
-      0% {
-        opacity: 0;
-        transform: translate(0, 0);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(0, 0);
-      }
+    @keyframes floatReturn {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
-    @keyframes cloudFloat {
-      0%   { transform: translate(0px, 0px) rotate(0deg); }
-      25%  { transform: translate(-4px, 2px) rotate(-1deg); }
-      50%  { transform: translate(0px, 0px) rotate(0deg); }
-      75%  { transform: translate(4px, -2px) rotate(1deg); }
-      100% { transform: translate(0px, 0px) rotate(0deg); }
+    @media (max-width: 768px) {
+      .menu a {
+        font-size: 1.4rem;
+        text-align: center;
+      }
+
+      .return-home {
+        font-size: 1rem;
+        margin-top: 60px;
+      }
     }
   </style>
 </head>
@@ -166,4 +156,3 @@
 
 </body>
 </html>
-
