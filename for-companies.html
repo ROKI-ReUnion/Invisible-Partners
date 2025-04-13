@@ -115,31 +115,31 @@
     }
 
     .return-top {
-      position: fixed;
-      top: 40%;
-      left: 20px;
-      transform: rotate(-5deg);
-      font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.4);
-      font-family: 'Segoe UI', sans-serif;
-      text-decoration: none;
-      opacity: 0;
-      animation: fadeFloatReturn 1.5s ease-in-out forwards, returnFloat 6s ease-in-out infinite;
-      animation-delay: 1.5s;
-      z-index: 2;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 60px auto 20px;
+  font-size: 1.2rem;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 180, 0.5);
+  animation: floatReturn 4s ease-in-out infinite;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+  z-index: 2;
+}
 
-    .return-top:hover {
-      color: rgba(255, 255, 255, 0.8);
-      text-shadow: 0 0 8px rgba(255,255,255,0.4);
-    }
+.return-top:hover {
+  color: white;
+  text-shadow: 0 0 16px rgba(255, 255, 220, 0.9), 0 0 30px rgba(255, 255, 180, 0.5);
+}
 
-    @keyframes fadeFloatReturn {
-      0% {
-        opacity: 0;
-        transform: translateY(10px) rotate(-5deg);
-      }
+@keyframes floatReturn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
       100% {
         opacity: 1;
         transform: translateY(0px) rotate(-5deg);
@@ -150,6 +150,14 @@
       0%, 100% { transform: translateY(0) rotate(-5deg); }
       50% { transform: translateY(-6px) rotate(-4deg); }
     }
+    
+    @media (max-width: 768px) {
+  .return-top {
+    font-size: 1rem;
+    margin: 40px auto 10px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -211,7 +219,8 @@
     </p>
   </div>
 
-  <a href="index.html" class="return-top fade-link">還る</a>
+<a href="next.html" class="return-top fade-link">還る</a>
+
 
   <script>
     const starContainer = document.getElementById("stars");
