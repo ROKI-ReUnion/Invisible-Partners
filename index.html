@@ -14,9 +14,9 @@
       color: white;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       overflow: auto;
       position: relative;
       opacity: 1;
@@ -54,7 +54,7 @@
       max-width: 50%;
       height: auto;
       filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
-      margin-top: 60px;
+      margin: 40px 0 20px;
     }
 
     @keyframes symbolFadeIn {
@@ -73,7 +73,7 @@
       white-space: nowrap;
       z-index: 2;
       pointer-events: none;
-      margin: 30px 0;
+      margin: 20px 0 40px;
     }
 
     @keyframes textFadeScatter {
@@ -122,26 +122,26 @@
       text-shadow: 0 0 16px rgba(255, 255, 255, 0.9), 0 0 28px rgba(255,255,255,0.6);
     }
 
-.future-link {
-  font-size: 2rem;
-  color: white;
-  text-decoration: none;
-  font-family: 'Segoe UI', sans-serif;
-  text-shadow: 0 0 8px rgba(255, 255, 200, 0.5), 0 0 16px rgba(255, 255, 180, 0.3);
-  opacity: 0;
-  animation: futureFadeIn 1.2s ease-out forwards;
-  animation-delay: 5s;
-  z-index: 3;
-  transition: text-shadow 0.3s ease, transform 0.3s ease;
-  pointer-events: auto;
-  margin-bottom: 60px;
-}
+    .future-link {
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      font-family: 'Segoe UI', sans-serif;
+      text-shadow: 0 0 8px rgba(255, 255, 200, 0.5), 0 0 16px rgba(255, 255, 180, 0.3);
+      opacity: 0;
+      animation: futureFadeIn 1.2s ease-out forwards;
+      animation-delay: 5s;
+      z-index: 3;
+      transition: text-shadow 0.3s ease, transform 0.3s ease;
+      pointer-events: auto;
+      margin-bottom: 60px;
+    }
 
-.future-link:hover {
-  color: white;
-  text-shadow: 0 0 12px rgba(255, 255, 200, 0.9), 0 0 24px rgba(255, 255, 150, 0.6);
-  transform: scale(1.05);
-}
+    .future-link:hover {
+      color: white;
+      text-shadow: 0 0 12px rgba(255, 255, 200, 0.9), 0 0 24px rgba(255, 255, 150, 0.6);
+      transform: scale(1.05);
+    }
 
     @keyframes futureFadeIn {
       0% { opacity: 0; transform: scale(0.95); filter: blur(6px); }
