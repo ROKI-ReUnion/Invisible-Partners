@@ -1,107 +1,69 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>理念｜Invisible Partners</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
-      width: 100%;
-      background: #000;
+      background-color: #000;
       color: white;
       font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
-      opacity: 1;
-      transition: opacity 0.6s ease-in-out;
-    }
-
-    body.fade-out { opacity: 0; }
-
-    .stars {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0;
-      animation: twinkle 3s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 1; }
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      margin: 80px auto 60px;
       padding: 20px;
-      animation: fadeInUp 1.5s ease-in-out forwards;
-      opacity: 0;
+      position: relative;
+      min-height: 100vh;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .philosophy-title {
-      text-align: center;
+    h1 {
       font-size: 2.2rem;
+      text-align: center;
       margin-bottom: 2rem;
       text-shadow: 0 0 10px rgba(255,255,255,0.3);
     }
 
-    .philosophy-text {
-      white-space: pre-wrap;
+    .content {
       font-size: 1.1rem;
-      line-height: 2;
+      line-height: 1.8;
       color: rgba(255,255,255,0.85);
+      max-width: 1000px;
+      padding: 0 1rem;
+      margin: 0 auto 2rem;
+      text-align: center;
+      white-space: pre-wrap;
     }
 
-    .contact-link,
-    .contact-link:visited,
-    .contact-link:active {
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer a {
       color: white;
       font-weight: bold;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       text-decoration: none;
-      transition: text-shadow 0.3s ease, color 0.3s ease;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
 
-    .contact-link:hover {
-      text-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255,255,255,0.4);
+    .footer a:hover {
+      text-shadow: 0 0 16px rgba(255,255,255,0.8), 0 0 24px rgba(255,255,255,0.4);
     }
 
     .return-top {
-      display: block;
-      text-align: center;
-      margin: 40px auto;
+      position: fixed;
+      bottom: 40px;
+      left: 20px;
       font-size: 1.2rem;
-      font-family: 'Segoe UI', sans-serif;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
       font-weight: bold;
-      text-shadow: 0 0 10px rgba(255, 255, 180, 0.5);
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+      z-index: 1000;
       animation: floatReturn 4s ease-in-out infinite;
-      transition: text-shadow 0.3s ease;
-      z-index: 2;
-    }
-
-    .return-top:hover {
-      text-shadow: 0 0 18px rgba(255, 255, 200, 0.9), 0 0 28px rgba(255, 255, 180, 0.5);
     }
 
     @keyframes floatReturn {
@@ -110,19 +72,20 @@
     }
 
     @media (max-width: 768px) {
-      .content { padding: 15px; font-size: 0.95rem; }
-      .philosophy-title { font-size: 1.6rem; }
-      .return-top { font-size: 1rem; margin-top: 30px; }
+      body {
+        padding: 10px;
+      }
+      .content {
+        padding: 0 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="stars" id="stars"></div>
+  <h1>理念｜Philosophy</h1>
 
   <div class="content">
-    <h1 class="philosophy-title">理念 ― 私たちが目指す未来</h1>
-    <div class="philosophy-text">
 当社インビジブルパートナーズ、そしてその事業活動は、
 明確な理念のもとに運営されています。
 
@@ -141,39 +104,18 @@
 それが、インビジブルパートナーズの目指す未来であり、
 そして、私自身がこの事業を通して実現したい目的です。
 
-この理念に共感し、もっと知りたいと思ってくださる方がいらっしゃいましたら、どうぞ、
-<a href="contact.html" class="fade-link contact-link">Contacts</a> よりお気軽にご連絡ください。
+この理念に共感し、もっと知りたいと思ってくださる方がいらっしゃいましたら、
+どうぞ、お気軽にご連絡ください。
 あなたの「問い」こそが、未来への扉です。
-    </div>
   </div>
 
-  <a href="next.html" class="return-top fade-link">還る</a>
+  <a href="index.html" class="return-top fade-link">還る</a>
 
-  <script>
-    const starContainer = document.getElementById("stars");
-    const starCount = 100;
-
-    for (let i = 0; i < starCount; i++) {
-      const star = document.createElement("div");
-      star.className = "star";
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.animationDelay = `${Math.random() * 3}s`;
-      star.style.animationDuration = `${2 + Math.random() * 2}s`;
-      starContainer.appendChild(star);
-    }
-
-    document.querySelectorAll("a.fade-link").forEach(link => {
-      link.addEventListener("click", function(e) {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        document.body.classList.add("fade-out");
-        setTimeout(() => {
-          window.location.href = href;
-        }, 600);
-      });
-    });
-  </script>
+  <div class="footer">
+    X: <a href="https://x.com/ROKI_ReUnion" target="_blank">@ROKI_ReUnion</a>　
+    ｜　
+    メール: <a href="mailto:roki.reunion@gmail.com">roki.reunion@gmail.com</a>
+  </div>
 
 </body>
 </html>
