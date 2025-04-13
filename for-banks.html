@@ -105,20 +105,20 @@
     }
 
     .return-top {
-      position: fixed;
-      top: 40%;
-      left: 20px;
-      transform: rotate(-5deg);
-      font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.4);
-      font-family: 'Segoe UI', sans-serif;
-      text-decoration: none;
-      opacity: 0;
-      animation: fadeFloatReturn 1.5s ease-in-out forwards, returnFloat 6s ease-in-out infinite;
-      animation-delay: 1.5s;
-      z-index: 2;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
+  display: block;
+  text-align: center;
+  margin: 50px auto 20px;
+  font-size: 1.2rem;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 180, 0.5);
+  animation: floatReturn 4s ease-in-out infinite;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  z-index: 2;
+}
+
 
     .return-top:hover {
       color: rgba(255, 255, 255, 0.8);
@@ -136,6 +136,9 @@
     }
   </style>
 </head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 <body>
 
   <div class="stars" id="stars"></div>
