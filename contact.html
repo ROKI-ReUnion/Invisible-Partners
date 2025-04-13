@@ -2,13 +2,10 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacts｜Invisible Partners</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
       width: 100%;
@@ -20,9 +17,7 @@
       transition: opacity 0.6s ease-in-out;
     }
 
-    body.fade-out {
-      opacity: 0;
-    }
+    body.fade-out { opacity: 0; }
 
     .stars {
       position: fixed;
@@ -51,16 +46,16 @@
       position: relative;
       z-index: 1;
       max-width: 700px;
-      margin: 100px auto 120px;
+      margin: 100px auto 60px;
       padding: 20px;
       animation: fadeInUp 1.5s ease-in-out forwards;
       opacity: 0;
+      text-align: center;
     }
 
     .content h1 {
       font-size: 2.2rem;
       margin-bottom: 1.5rem;
-      text-align: center;
       text-shadow: 0 0 10px rgba(255,255,255,0.3);
     }
 
@@ -68,13 +63,11 @@
       font-size: 1.1rem;
       line-height: 2;
       color: rgba(255,255,255,0.85);
-      margin-bottom: 1.5rem;
-      text-align: center;
+      margin-bottom: 2rem;
+      white-space: pre-wrap;
     }
 
     .contact-links {
-      text-align: center;
-      margin-top: 2rem;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
@@ -85,60 +78,54 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1.2rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 0 10px rgba(255, 255, 180, 0.5);
       transition: text-shadow 0.3s ease, color 0.3s ease;
+      animation: floatContact 4s ease-in-out infinite;
     }
 
     .contact-links a:hover {
-      text-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255,255,255,0.4);
+      text-shadow: 0 0 16px rgba(255, 255, 200, 0.9), 0 0 24px rgba(255,255,200,0.5);
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes floatContact {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .return-top {
-      position: fixed;
-      top: 40%;
-      left: 20px;
-      transform: rotate(-5deg);
-      font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.4);
+      display: block;
+      text-align: center;
+      margin: 50px auto 20px;
+      font-size: 1.2rem;
       font-family: 'Segoe UI', sans-serif;
       text-decoration: none;
-      opacity: 0;
-      animation: fadeFloatReturn 1.5s ease-in-out forwards, returnFloat 6s ease-in-out infinite;
-      animation-delay: 1.5s;
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255, 255, 180, 0.5);
+      animation: floatReturn 4s ease-in-out infinite;
+      transition: text-shadow 0.3s ease;
       z-index: 2;
-      transition: color 0.3s, text-shadow 0.3s;
     }
 
     .return-top:hover {
-      color: rgba(255, 255, 255, 0.8);
-      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+      text-shadow: 0 0 18px rgba(255, 255, 200, 0.9), 0 0 28px rgba(255, 255, 180, 0.5);
     }
 
-    @keyframes fadeFloatReturn {
-      0% {
-        opacity: 0;
-        transform: translateY(10px) rotate(-5deg);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0px) rotate(-5deg);
-      }
+    @keyframes floatReturn {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
-    @keyframes returnFloat {
-      0%, 100% { transform: translateY(0) rotate(-5deg); }
-      50% { transform: translateY(-6px) rotate(-4deg); }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .content h1 { font-size: 1.6rem; }
+      .content p { font-size: 1rem; }
+      .contact-links a { font-size: 1rem; }
+      .return-top { font-size: 1rem; }
     }
   </style>
 </head>
@@ -149,9 +136,9 @@
   <div class="content">
     <h1>Contacts｜ご連絡はこちらへ</h1>
     <p>
-      ご縁や共鳴を感じてくださった方、<br>
-      あるいはただ、言葉を交わしてみたいと思った方、<br>
-      お気軽にコンタクトいただければ嬉しいです。
+ご縁や共鳴を感じてくださった方、  
+あるいはただ、言葉を交わしてみたいと思った方、  
+お気軽にコンタクトいただければ嬉しいです。
     </p>
 
     <div class="contact-links">
