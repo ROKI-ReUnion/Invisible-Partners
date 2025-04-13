@@ -13,6 +13,8 @@
       font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
       padding: 20px;
+      position: relative;
+      min-height: 100vh;
     }
 
     h1 {
@@ -23,14 +25,14 @@
     }
 
     p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.85);
-  max-width: 1000px;        /* 横幅の最大を広くする */
-  padding: 0 1rem;           /* 左右の余白を少し確保（なければ読みづらい） */
-  margin: 0 auto 2rem;       /* 中央寄せ＋下に余白 */
-  text-align: center;
-}
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.85);
+      max-width: 1000px;
+      padding: 0 1rem;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
 
     .section-label {
       font-size: 1.4rem;
@@ -87,23 +89,24 @@
     .footer a:hover {
       text-shadow: 0 0 16px rgba(255,255,255,0.8), 0 0 24px rgba(255,255,255,0.4);
     }
-.return-top {
-  position: fixed;
-  bottom: 60px;
-  left: 20px;
-  font-size: 1.2rem;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  z-index: 10;
-  animation: floatReturn 4s ease-in-out infinite;
-}
 
-@keyframes floatReturn {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
+    .return-top {
+      position: fixed;
+      bottom: 40px;
+      left: 20px;
+      font-size: 1.2rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+      z-index: 1000;
+      animation: floatReturn 4s ease-in-out infinite;
+    }
+
+    @keyframes floatReturn {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
   </style>
 </head>
 <body>
@@ -171,6 +174,7 @@
     ｜　
     メール: <a href="mailto:roki.reunion@gmail.com">roki.reunion@gmail.com</a>
   </div>
+
   <a href="index.html" class="return-top fade-link">還る</a>
 
 </body>
