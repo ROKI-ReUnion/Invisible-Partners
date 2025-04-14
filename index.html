@@ -285,6 +285,33 @@
       const content = document.getElementById(id);
       content.style.display = content.style.display === "flex" ? "none" : "flex";
     }
+    <script>
+  const starContainer = document.getElementById("stars");
+  const starCount = 100;
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.animationDelay = `${Math.random() * 3}s`;
+    star.style.animationDuration = `${2 + Math.random() * 2}s`;
+    starContainer.appendChild(star);
+  }
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      if (this.tagName === 'A') {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      }
+    });
+  });
+</script>
+
   </script>
 
 </body>
