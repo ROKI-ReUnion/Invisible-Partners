@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanctuary of Life</title>
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -19,6 +18,8 @@
       opacity: 1;
       transition: opacity 0.6s ease-in-out;
     }
+
+    body.fade-out { opacity: 0; }
 
     body::before {
       content: "";
@@ -41,8 +42,6 @@
       0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
       100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     }
-
-    body.fade-out { opacity: 0; }
 
     .stars {
       position: fixed;
@@ -81,9 +80,9 @@
     }
 
     @keyframes textFadeScatter {
-      0% { opacity: 0; filter: blur(8px); transform: translate(-50%, -50%) scale(0.95); }
-      70% { opacity: 1; filter: blur(0px); transform: translate(-50%, -50%) scale(1); }
-      100% { opacity: 0; filter: blur(30px); transform: translate(-50%, -50%) scale(1.2); }
+      0% { opacity: 0; filter: blur(8px); transform: scale(0.95); }
+      70% { opacity: 1; filter: blur(0); transform: scale(1); }
+      100% { opacity: 0; filter: blur(30px); transform: scale(1.2); }
     }
 
     .top-left-label {
@@ -117,15 +116,8 @@
       animation-delay: 3.2s;
     }
 
-    .left-links {
-      left: 12%;
-      align-items: flex-start;
-    }
-
-    .right-links {
-      right: 0%;
-      align-items: flex-end;
-    }
+    .left-links { left: 12%; align-items: flex-start; }
+    .right-links { right: 0%; align-items: flex-end; }
 
     .center-link {
       position: absolute;
@@ -215,7 +207,6 @@
 <body>
 
   <div class="stars" id="stars"></div>
-
   <div class="invisible-text">Sanctuary of Life</div>
   <div class="top-left-label">Sanctuary of Life</div>
 
@@ -254,42 +245,38 @@
     メール: <a href="mailto:roki.reunion@gmail.com" class="fade-link">roki.reunion@gmail.com</a>
   </div>
 
+  <script>
+    const starContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      star.style.animationDuration = `${2 + Math.random() * 2}s`;
+      starContainer.appendChild(star);
+    }
+
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        if (this.tagName === 'A') {
+          e.preventDefault();
+          const href = this.getAttribute("href");
+          document.body.classList.add("fade-out");
+          setTimeout(() => {
+            window.location.href = href;
+          }, 600);
+        }
+      });
+    });
+
     function toggleContent(id) {
       const content = document.getElementById(id);
       content.style.display = content.style.display === "flex" ? "none" : "flex";
     }
-    <script>
-  const starContainer = document.getElementById("stars");
-  const starCount = 100;
-  for (let i = 0; i < starCount; i++) {
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.animationDelay = `${Math.random() * 3}s`;
-    star.style.animationDuration = `${2 + Math.random() * 2}s`;
-    starContainer.appendChild(star);
-  }
-
-  document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", function(e) {
-      if (this.tagName === 'A') {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        document.body.classList.add("fade-out");
-        setTimeout(() => {
-          window.location.href = href;
-        }, 600);
-      }
-    });
-  });
-
-  function toggleContent(id) {
-    const content = document.getElementById(id);
-    content.style.display = content.style.display === "flex" ? "none" : "flex";
-  }
-</script>
-
+  </script>
 
 </body>
 </html>
