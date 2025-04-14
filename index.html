@@ -67,26 +67,22 @@
     }
 
     .invisible-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem; /* .center-link と同じ */
-  color: white;
-  text-decoration: none;
-  text-shadow: 0 0 10px rgba(255, 255, 200, 0.6), 0 0 20px rgba(255, 255, 180, 0.4);
-  opacity: 0;
-  animation: fadeInFuture 2.5s ease-in-out forwards;
-  animation-delay: 3.2s;
-  z-index: 2;
-  cursor: pointer;
-}
-
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      white-space: nowrap;
+      z-index: 2;
+      opacity: 0;
+      animation: textFadeScatter 3s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
 
     @keyframes textFadeScatter {
-      0% { opacity: 0; filter: blur(8px); transform: scale(0.95); }
-      70% { opacity: 1; filter: blur(0); transform: scale(1); }
-      100% { opacity: 0; filter: blur(30px); transform: scale(1.2); }
+      0% { opacity: 0; filter: blur(8px); transform: translate(-50%, -50%) scale(0.95); }
+      70% { opacity: 1; filter: blur(0px); transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; filter: blur(30px); transform: translate(-50%, -50%) scale(1.2); }
     }
 
     .top-left-label {
